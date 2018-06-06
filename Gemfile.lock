@@ -582,6 +582,7 @@ GEM
       aws-sigv4 (~> 1.0)
     aws-sigv2 (1.0.1)
     aws-sigv4 (1.0.2)
+    dotenv (2.4.0)
     ffi (1.9.25)
     jmespath (1.4.0)
     mustermann (1.0.2)
@@ -609,6 +610,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
+  dotenv
   rmagick
   sass
   sinatra
