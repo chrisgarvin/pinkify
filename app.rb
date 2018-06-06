@@ -7,7 +7,7 @@ def get_image(name)
 end
 
 def path(pre = nil)
-  Sinatra::Base.development? ? "#{pre}/images/" : "#{settings.root}/tmp/"
+  Sinatra::Base.development? ? "#{pre}/images/" : "/tmp/"
 end
 
 get '/' do
