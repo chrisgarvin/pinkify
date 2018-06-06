@@ -3,7 +3,11 @@ require 'RMagick'
 include Magick
 
 def get_image(name)
-  "<img src='/images/#{name}.jpg' />"
+  "<img src='#{path + name}.jpg' />"
+end
+
+def path(pre = nil)
+  Sinatra::Base.development? ? "#{pre}/images/" : "#{settings.root}/tmp/"
 end
 
 get '/' do
@@ -15,6 +19,6 @@ post '/pinkified' do
   @file_name = SecureRandom.uuid
   mono = img.quantize(256, Magick::GRAYColorspace)
   pink_img = mono.level_colors('black', '#c31e62', true)
-  pink_img.write("public/images/#{@file_name}.jpg")
+  pink_img.write("#{path('public') + @file_name}.jpg")
   erb :pinkified
 end
