@@ -1,6 +1,5 @@
 body {
   background-color: #c31e62;
-  text-transform: uppercase;
 }
 
 .container {
@@ -12,13 +11,25 @@ body {
   height: 100vh;
   color: white;
 
-  input {
+  input, .upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     width: 60vw;
     border-radius: 15px;
     height: 100px;
     font-size: 24px;
     color: #c31e62;
+    background-color: white;
+  }
+
+  .upload {
+    margin-bottom: 15px;
+  }
+
+  input[type='file'] {
+    display: none;
   }
 
   .btn {

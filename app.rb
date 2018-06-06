@@ -14,9 +14,9 @@ get '/' do
 end
 
 post '/pinkified' do
-  img = Magick::Image.read(params[:url])[0]
+  img = Magick::Image.read(params[:image][:tempfile].path)[0]
   @file_name = SecureRandom.uuid
-  mono = img.quantize(256, Magick::GRAYColorspace)
+  mono = img.quantize(256, Magick::GRAYColorspace).resize_to_fit(500, 500)
   pink_img = mono.level_colors('black', '#c31e62', true)
 
   Aws.config.update({

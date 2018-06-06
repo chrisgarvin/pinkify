@@ -6,8 +6,11 @@
   </head>
   <body>
     <div class="container">
-      <form method="POST" action="/pinkified">
-        <p><input name="url" type="text" placeholder="Enter an image URL"></p>
+      <form method="POST" action="/pinkified" enctype="multipart/form-data">
+        <label class="upload">
+          <input name="image" type="file"/>
+          Choose Image
+        </label>
         <input type="submit" value="Pinkify">
       </form>
     </div>

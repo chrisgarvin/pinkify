@@ -1,6 +1,5 @@
 body {
-  background-color: #c31e62;
-  text-transform: uppercase; }
+  background-color: #c31e62; }
 
 .container {
   display: flex;
@@ -10,13 +9,21 @@ body {
   width: 100%;
   height: 100vh;
   color: white; }
-  .container input {
+  .container input, .container .upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     width: 60vw;
     border-radius: 15px;
     height: 100px;
     font-size: 24px;
-    color: #c31e62; }
+    color: #c31e62;
+    background-color: white; }
+  .container .upload {
+    margin-bottom: 15px; }
+  .container input[type='file'] {
+    display: none; }
   .container .btn {
     margin: 15px auto;
     display: flex;
