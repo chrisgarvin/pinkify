@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'RMagick'
+require 'rmagick'
 include Magick
 require 'aws-sdk-s3'
 require 'dotenv'
@@ -17,7 +17,7 @@ post '/pinkified' do
   img = Magick::Image.read(params[:url])[0]
   @file_name = SecureRandom.uuid
   mono = img.quantize(256, Magick::GRAYColorspace)
-  @pink_img = mono.level_colors('black', '#c31e62', true)
+  pink_img = mono.level_colors('black', '#c31e62', true)
 
   Aws.config.update({
     credentials: Aws::Credentials.new(ENV['AWS_KEY'], ENV['AWS_SECRET'])
@@ -27,7 +27,7 @@ post '/pinkified' do
   client.put_object({
     bucket: ENV['BUCKET'],
     key: @file_name,
-    body: @pink_img.to_blob,
+    body: pink_img.to_blob,
     acl: 'public-read'
   })
 
