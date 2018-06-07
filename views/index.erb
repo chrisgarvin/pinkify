@@ -7,11 +7,12 @@
   <body>
     <div class="container">
       <form method="POST" action="/pinkified" enctype="multipart/form-data">
-        <label class="upload">
-          <input name="image" type="file"/>
-          Choose Image
+        <label id="upload">
+          <input name="image" type="file" accept="image/*" required="required" />
+          <span id="choose">Choose Image</span>
+          <span id="chosen">Image Selected</span>
         </label>
-        <input type="submit" value="Pinkify">
+        <input id="submit" type="submit" value="Pinkify">
       </form>
     </div>
   </body>

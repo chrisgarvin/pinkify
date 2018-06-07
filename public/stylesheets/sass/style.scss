@@ -11,7 +11,13 @@ body {
   height: 100vh;
   color: white;
 
-  input, .upload {
+  input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  input, #upload {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,12 +30,38 @@ body {
     background-color: white;
   }
 
-  .upload {
+  @media (max-width: 1050px) {
+    input, #upload {
+      font-size: 55px;
+      width: 95vw;
+      height: 50vh;
+    }
+  }
+
+  #upload {
     margin-bottom: 15px;
+
+    #chosen {
+      display: none;
+    }
   }
 
   input[type='file'] {
     display: none;
+  }
+
+  form:valid #upload {
+    #choose {
+      display: none;
+    }
+
+    #chosen {
+      display: inline;
+    }
+  }
+
+  form:invalid>#submit {
+    pointer-events: none;
   }
 
   .btn {
