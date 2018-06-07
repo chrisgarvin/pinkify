@@ -16,9 +16,9 @@ end
 post '/pinkified' do
   img = Magick::Image.read(params[:image][:tempfile].path)[0]
   img.format = 'PNG'
-  img.resize_to_fit(500, 500)
+  compressed = img.resize_to_fit(500, 500)
   @file_name = SecureRandom.uuid
-  mono = img.quantize(256, Magick::GRAYColorspace)
+  mono = compressed.quantize(256, Magick::GRAYColorspace)
   pink_img = mono.level_colors('black', '#c31e62', true)
 
   Aws.config.update({
